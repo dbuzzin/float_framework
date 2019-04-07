@@ -1,0 +1,7 @@
+@function convert($current, $unit, $val) {
+    @if $current == percent {
+        @if $unit == px {
+            @return ($val * 16) / 100 + 0rem;
+        }
+    }
+}

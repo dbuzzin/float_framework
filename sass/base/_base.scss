@@ -1,0 +1,17 @@
+html {
+    position: relative;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+*, 
+*::before,
+*::after {
+    position: inherit;
+    box-sizing: inherit;
+}

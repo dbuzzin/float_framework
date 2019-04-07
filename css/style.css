@@ -9914,15 +9914,15 @@ body {
     padding-right: 15rem !important; } }
 
 .rm-tgutter-y {
-  margin-top: -2rem !important; }
+  margin-top: -1rem !important; }
 
 .rm-bgutter-y {
-  margin-bottom: -2rem !important; }
+  margin-bottom: -1rem !important; }
 
 .row {
   max-width: 100%;
   margin: 0 auto;
-  margin-bottom: 2rem; }
+  margin-bottom: 1rem; }
   .row::after {
     content: "";
     display: block;

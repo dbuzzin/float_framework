@@ -7,7 +7,13 @@
         <link rel="stylesheet" href="css/style.css">
         <style>
             body {
-                background-color: #333;
+                background-color: #999;
+                color: #000;
+            }
+
+            header, 
+            main {
+                margin-bottom: 1rem;
             }
 
             .sticky-footer {
@@ -18,54 +24,154 @@
             .bg {
                 background-color: #ececec
             }
+
+            .navbar {
+                border-bottom: 1px solid #777;
+            }
+
+            .navbar__logo {
+                display: inline-block;
+                line-height: 10rem;
+                font-size: 2.5rem;
+            }
+
+            .nav {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                display: inline-block;
+                list-style: none;
+                font-size: 0;
+            }
+
+            .nav__item {
+                display: inline-block;
+                font-size: 1.2rem;
+                width: 10rem;
+                margin-bottom: -1px;
+                padding: 1rem 2rem;
+                text-align: center;
+                border: 1px solid #777;
+            }
+
+            .nav__item:not(:last-child) {
+                margin-right: -1px;
+            }
+
+            .left-arrow,
+            .right-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 5rem;
+                width: 5rem;
+                border: 1px solid #777;
+                border-radius: 100%;
+                /* text-align: center; */
+            }
+
+            .left-arrow {
+                left: 2rem;
+            }
+
+            .right-arrow {
+                right: 2rem;
+            }
         </style>
 
         <script src="node_modules/jquery/dist/jquery.js"></script>
     </head>
     <body>
+
+   <!-- * =================================== *
+        *                Header               *
+        * =================================== * -->
+
         <header>
-            <!-- NAVBAR -->
-            <nav class="navbar">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="bg h-sm-10"></div>
+
+        <!--* =================================== *
+            *           Navigation bar            *
+            * =================================== * -->
+            <nav class="navbar bg">
+                <div class="container-fluid-80">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="h-sm-10">
+                                <h2 class="navbar__logo">LOGO</h2>
+                                <ul class="nav">
+                                    <li class="nav__item">
+                                        <a href="" class="nav__link">Link</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="" class="nav__link">Link *</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="" class="nav__link">Link</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>
         </header>
 
+   <!-- * =================================== *
+        *      Main section of the page       *
+        * =================================== * -->
+
         <main>
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <div class="bg h-sm-40">
-                        hew
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-8">
-                    <div class="row">
-                        <div class="col-sm-12 col-lg-6">
-                            <div class="bg h-sm-20">
-                                1
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-6">
-                            <div class="bg h-sm-20">
-                                2
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row rm-bgutter-y">
-                        <div class="col-sm-12 col-md-24 col-lg-12 lg-normalise md-fillback mb-sm-1">
-                            <div class="bg h-sm-19">
-                                3
-                            </div>
+            <div class="container-fluid-80">
+
+           <!-- * =================================== *
+                *            Image carousel           *
+                * =================================== * -->
+                
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="bg h-sm-20 h-md-40">
+                            <span class="pos-center">Scrolling Image Carousel</span>
+                            <span class="left-arrow">
+                                <a href="" class="pos-center">left</a>
+                            </span>
+                            <span class="right-arrow">
+                                <a href="" class="pos-center">right</a>
+                            </span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="bg h-sm-20"></div>
+
+           <!-- * =================================== *
+                *              Main row               *
+                * =================================== * -->
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="bg h-sm-40">
+                            hew
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-8">
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="bg h-sm-20">
+                                    1
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="bg h-sm-20">
+                                    2
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row rm-bgutter-y">
+                            <div class="col-sm-12 col-md-24 col-lg-12 lg-normalise md-fillback mb-sm-1">
+                                <div class="bg h-sm-19">
+                                    3
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

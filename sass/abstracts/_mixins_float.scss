@@ -79,6 +79,24 @@
 
 // ==================================================
 //
+//             Build container classes
+//
+// ==================================================
+
+@mixin build-containers($width, $screen, $type) {
+
+    .container-#{$type}-#{$width * 10}{
+        margin: 0 auto;
+
+        @include respond(phone) { width: 100%; }
+        @include respond(tab-port) { width: $width * 10%; }
+
+    }
+
+}
+
+// ==================================================
+//
 //      Control the building of utility classes
 //
 // ==================================================
@@ -91,17 +109,16 @@
     //
     // ==================================================
 
-    @if $screen = sm { // Small
+    @if $screen == sm { // Small
         @if $u == h { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { height: #{$num}rem !important; }}}
         @if $u == w { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { width: #{$num}rem !important; }}}
     }
 
-    @if $screen = md { // Medium
+    @if $screen == md { // Medium
         @if $u == h { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { height: #{$num}rem !important; }}}
         @if $u == w { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { width: #{$num}rem !important; }}}
     }
-
-    @if $screen = lg { // Large
+    @if $screen == lg { // Large
         @if $u == h { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { height: #{$num}rem !important; }}}
         @if $u == w { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { width: #{$num}rem !important; }}}
     }

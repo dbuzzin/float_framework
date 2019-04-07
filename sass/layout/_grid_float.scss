@@ -1,33 +1,45 @@
-.row {
-    max-width: $grid-width;
-    margin: 0 auto;
-    margin-bottom: $gutter-y;
+[class ^="container-"] {
 
-    @include clearfix;
+    .row {
+        max-width: $grid-width;
+        margin: 0 auto;
+        
 
-    [class ^="col-"] {
-        float: left;
-
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    @include respond(tab-port) {
-
+        &:not(:last-of-type) {
+            margin-bottom: $gutter-y;
+        }
+    
+        @include clearfix;
+    
         [class ^="col-"] {
-            margin-bottom: 0;
-
-            &:not(:last-of-type) {
-                margin-right: $gutter-x;
+            float: left;
+    
+            margin-left: 0;
+            margin-right: 0;
+        }
+    
+        @include respond(tab-port) {
+    
+            [class ^="col-"] {
+                margin-bottom: 0;
+    
+                &:not(:last-of-type) {
+                    margin-right: $gutter-x;
+                }
             }
         }
+    
+        @for $i from 1 through $grid-columns * 2 { @include column-width($i, sm); }
+        @for $i from 1 through $grid-columns * 2 { @include column-width($i, md); }
+        @for $i from 1 through $grid-columns * 2 { @include column-width($i, lg); }
+    
     }
 
-    @for $i from 1 through $grid-columns * 2 { @include column-width($i, sm); }
-    @for $i from 1 through $grid-columns * 2 { @include column-width($i, md); }
-    @for $i from 1 through $grid-columns * 2 { @include column-width($i, lg); }
-
 }
+
+
+
+@for $i from 1 through 10 { $multiplier: $i * 10; @include build-containers($i, 0, fluid); }
 
 
 

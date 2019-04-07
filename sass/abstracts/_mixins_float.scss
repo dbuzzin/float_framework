@@ -20,7 +20,7 @@
 
 @mixin respond($breakpoint) {
     @if $breakpoint == phone {
-        @media (min-width: 320px) { @content };
+        @media (max-width: 600px) { @content };
     }
     @if $breakpoint == phone-mid {
         @media (min-width: 450px) { @content };

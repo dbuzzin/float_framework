@@ -1,0 +1,55 @@
+.navbar {
+
+    &--fixed {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .nav {
+        display: inline-block;
+        list-style: none;
+        font-size: 0;
+        background-color: inherit;
+
+        &--flat {
+
+            & > li.nav__item {
+                display: inline-block;
+                background-color: #e0e0e0;
+            }
+
+        }
+        
+        &__item {
+
+            &--drop {
+
+                &:hover .drop{
+                    // display: block;
+                    transform: scaleY(1);
+                }
+            }
+        }
+    }
+
+    .drop {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        width: max-content;
+        display: none;
+        list-style: none;
+        background-color: inherit;
+        z-index: 1000;
+        
+
+        &__item {
+            text-align: left;
+            padding: 1rem 5rem 1rem 3rem;
+        }
+    }
+}

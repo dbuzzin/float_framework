@@ -39,19 +39,17 @@
                 position: absolute;
                 bottom: 0;
                 right: 0;
-                display: inline-block;
-                list-style: none;
-                font-size: 0;
             }
 
             .nav__item {
-                display: inline-block;
+                /* display: inline-block; */
                 font-size: 1.2rem;
                 width: 10rem;
                 margin-bottom: -1px;
                 padding: 1rem 2rem;
                 text-align: center;
                 border: 1px solid #777;
+                /* border-bottom: 0; */
             }
 
             .nav__item:not(:last-child) {
@@ -98,12 +96,29 @@
                         <div class="col-sm-12">
                             <div class="h-sm-10">
                                 <h2 class="navbar__logo">LOGO</h2>
-                                <ul class="nav">
+                                <ul class="nav nav--flat">
                                     <li class="nav__item">
                                         <a href="" class="nav__link">Link</a>
                                     </li>
-                                    <li class="nav__item">
+                                    <li class="nav__item" data-dropdown="true">
                                         <a href="" class="nav__link">Link *</a>
+                                        <ul class="drop">
+                                            <li class="drop__item">
+                                                <a href="" class="drop__link">Dropdown Link</a>
+                                            </li>
+                                            <li class="drop__item">
+                                                <a href="" class="drop__link">Dropdown Link</a>
+                                            </li>
+                                            <li class="drop__item">
+                                                <a href="" class="drop__link">Dropdown Link</a>
+                                            </li>
+                                            <li class="drop__item">
+                                                <a href="" class="drop__link">Dropdown Link</a>
+                                            </li>
+                                            <li class="drop__item">
+                                                <a href="" class="drop__link">Dropdown Link</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li class="nav__item">
                                         <a href="" class="nav__link">Link</a>
@@ -130,12 +145,12 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="bg h-sm-20 h-md-40">
-                            <span class="pos-center">Scrolling Image Carousel</span>
+                            <span class="a-pos-center">Scrolling Image Carousel</span>
                             <span class="left-arrow">
-                                <a href="" class="pos-center">left</a>
+                                <a href="" class="a-pos-center">left</a>
                             </span>
                             <span class="right-arrow">
-                                <a href="" class="pos-center">right</a>
+                                <a href="" class="a-pos-center">right</a>
                             </span>
                         </div>
                     </div>

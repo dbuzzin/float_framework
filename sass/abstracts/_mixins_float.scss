@@ -41,7 +41,7 @@
 
 @mixin column-width($num-cols, $screen) {
 
-    $calculated-width: calc(((100% - ((#{$grid-columns} / #{$num-cols}) - 1) * #{$gutter-x}) / (#{$grid-columns} / #{$num-cols})));
+    $calculated-width: calc((100% - ((#{$grid-columns} / #{$num-cols}) - 1) * #{$gutter-x}) / (#{$grid-columns} / #{$num-cols}));
 
     @if $screen == sm {
         @include respond(phone) {

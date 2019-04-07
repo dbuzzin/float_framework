@@ -1,6 +1,10 @@
 [class ^="container-"] {
 
+    display: block;
+    min-height: inherit;
+
     .row {
+        min-height: inherit;
         max-width: $grid-width;
         margin: 0 auto;
         
@@ -13,7 +17,7 @@
     
         [class ^="col-"] {
             float: left;
-
+            min-height: inherit;
             width: 100%;
     
             margin-left: 0;

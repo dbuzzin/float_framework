@@ -29,16 +29,12 @@
                 border-bottom: 1px solid #777;
             }
 
-            .navbar__logo {
-                display: inline-block;
-                line-height: 10rem;
-                font-size: 2.5rem;
-            }
-
             .nav {
                 position: absolute;
                 bottom: 0;
                 right: 0;
+                margin-bottom: 1px;
+                background-color: #e0e0e0;
             }
 
             .nav__item {
@@ -90,50 +86,47 @@
         <!--* =================================== *
             *           Navigation bar            *
             * =================================== * -->
-            <nav class="navbar bg">
+            <nav class="navbar bg h-md-10">
                 <div class="container-fluid-80">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="h-sm-10">
-                                <h2 class="navbar__logo">LOGO</h2>
-                                <ul class="nav nav--flat">
-                                    <li class="nav__item">
-                                        <a href="" class="nav__link">Link</a>
-                                    </li>
-                                    <li class="nav__item" data-dropdown="true">
-                                        <a href="" class="nav__link">Link *</a>
-                                        <ul class="drop">
-                                            <li class="drop__item">
-                                                <a href="" class="drop__link">Dropdown Link</a>
-                                            </li>
-                                            <li class="drop__item">
-                                                <a href="" class="drop__link">Dropdown Link</a>
-                                            </li>
-                                            <li class="drop__item">
-                                                <a href="" class="drop__link">Dropdown Link</a>
-                                            </li>
-                                            <li class="drop__item">
-                                                <a href="" class="drop__link">Dropdown Link</a>
-                                            </li>
-                                            <li class="drop__item">
-                                                <a href="" class="drop__link">Dropdown Link</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav__item">
-                                        <a href="" class="nav__link">Link</a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="col-md-12 nav__parent">   
+                            <h2 class="navbar__logo">LOGO</h2>
+                            <a class="navbar__icon-box navbar__icon-box--right">
+                                <span class="navbar__icon"></span>
+                            </a>
+                            <ul class="nav nav--flat" data-content="collapse-menu">
+                                <li class="nav__item">
+                                    <a href="" class="nav__link">Link</a>
+                                </li>
+                                <li class="nav__item" data-content="drop">
+                                    <a href="" class="nav__link">Link *</a>
+                                    <ul class="drop">
+                                        <li class="drop__item">
+                                            <a href="" class="drop__link">Dropdown Link</a>
+                                        </li>
+                                        <li class="drop__item">
+                                            <a href="" class="drop__link">Dropdown Link</a>
+                                        </li>
+                                        <li class="drop__item">
+                                            <a href="" class="drop__link">Dropdown Link</a>
+                                        </li>
+                                        <li class="drop__item">
+                                            <a href="" class="drop__link">Dropdown Link</a>
+                                        </li>
+                                        <li class="drop__item">
+                                            <a href="" class="drop__link">Dropdown Link</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav__item">
+                                    <a href="" class="nav__link">Link</a>
+                                </li>
+                            </ul>  
                         </div>
                     </div>
                 </div>
             </nav>
         </header>
-
-   <!-- * =================================== *
-        *      Main section of the page       *
-        * =================================== * -->
 
         <main>
             <div class="container-fluid-80">
@@ -143,7 +136,7 @@
                 * =================================== * -->
                 
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-md-12">
                         <div class="bg h-sm-20 h-md-40">
                             <span class="a-pos-center">Scrolling Image Carousel</span>
                             <span class="left-arrow">
@@ -161,27 +154,27 @@
                 * =================================== * -->
 
                 <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="bg h-sm-40">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="bg h-sm-40 h-md-40">
                             hew
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-8">
+                    <div class="col-md-6 col-lg-8">
                         <div class="row">
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="bg h-sm-20">
+                            <div class="col-md-12 col-lg-6">
+                                <div class="bg h-sm-20 h-md-20">
                                     1
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="bg h-sm-20">
+                            <div class="col-md-12 col-lg-6">
+                                <div class="bg h-sm-20 h-md-20">
                                     2
                                 </div>
                             </div>
                         </div>
                         <div class="row rm-bgutter-y">
-                            <div class="col-sm-12 col-md-24 col-lg-12 lg-normalise md-fillback mb-sm-1">
-                                <div class="bg h-sm-19">
+                            <div class="col-md-24 col-lg-12 lg-normalise md-fillback mb-sm-1 mb-md-1">
+                                <div class="bg h-sm-19 h-md-19">
                                     3
                                 </div>
                             </div>
@@ -192,11 +185,14 @@
         </main>
 
         <footer class="sticky-footer bg">
-            <div class="row">
-                <div class="col-sm-12">
-                    
+            <div class="container-fluid-80">
+                <div class="row">
+                    <div class="col-md 12">
+                        
+                    </div>
                 </div>
             </div>
+            
         </footer>
 
         <script src="js/main.js"></script>

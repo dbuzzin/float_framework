@@ -1,5 +1,20 @@
 .navbar {
 
+    min-height: 7rem;
+    height: max-content;
+
+    &__logo {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 2rem;
+        display: inline-block;
+        font-size: 2.5rem;
+        // &--left { float: left; }
+        &--right { float: right; }
+
+    }
+
     &--fixed {
         position: fixed;
         top: 0;
@@ -7,31 +22,91 @@
         z-index: 1000;
     }
 
-    .nav {
-        display: inline-block;
-        list-style: none;
-        font-size: 0;
-        background-color: inherit;
+    &__icon-box {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 1px solid rgba(0, 0, 0, .2);
+        height: 4rem;
+        width: 4rem;
+        border-radius: .3rem;
 
-        &--flat {
+        &--left { left: 2rem; }
+        &--right { right: 2rem; }
 
-            & > li.nav__item {
-                display: inline-block;
-                background-color: #e0e0e0;
-            }
-
+        @include respond(tab-port) {
+            display: none;
         }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        width: 2.5rem;
+        height: .2rem;
+        background-color: #000;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+        }
+
+        &::before {
+            transform: translateY(-.7rem);
+        }
+
+        &::after {
+            transform: translateY(.7rem);
+        }
+    }
+
+    [data-content ="collapse-menu"] { 
+        // @include respond(phone) { display: none !important; }
+        @include respond(tab-port) { display: inline-block !important; }
+    }
+
+    .nav {
+        display: block;
+        width: 100%;
+        list-style: none;
         
         &__item {
+            border: 0 !important;
+            margin: 0 auto !important;
+        }
 
-            &--drop {
+        @include respond(tab-port) {
+            display: inline-block;
+            list-style: none;
+            font-size: 0;
 
-                &:hover .drop{
-                    // display: block;
-                    transform: scaleY(1);
+            &--flat {
+
+                & > li.nav__item {
+                    display: inline-block;
+                    background-color: #e0e0e0;
+                }
+    
+            }
+            
+            &__item {
+    
+                &--drop {
+    
+                    &:hover .drop{
+                        // display: block;
+                        transform: scaleY(1);
+                    }
                 }
             }
         }
+        
     }
 
     .drop {

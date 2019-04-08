@@ -59,13 +59,22 @@ if($navbar.hasClass("navbar--fixed-top")) {
 //
 // =================================================================
 // Checks if there is an element with the class ".sticky-footer".
-// Wraps everything else in a div with a variable height.
+// Wraps everything else in a div with a variable height. 
 // This pins the footer to the bottom of the page. 
 // Requires at least one tag present other than the footer.
 
+function calcWrap() {
+    let wrapHeight = $window.height() - $footer.height();
+
+    return $navbar.hasClass("navbar--fixed-top") 
+        ? wrapHeight -= parseInt($body.css("margin-top")) 
+        : wrapHeight;
+}
+
 if($footer.length === 1) {
     $toWrap.wrapAll("<div class=\"wrapper\"></div>")
-    $(".wrapper").css( { "min-height": $window.height()- $footer.height() } );;
+    $(".wrapper").css( { "min-height": calcWrap()} );
+    $window.resize(() => $(".wrapper").css( { "min-height": calcWrap()} ));
 }
 
 // =================================================================

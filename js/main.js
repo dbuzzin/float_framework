@@ -115,11 +115,13 @@ if($drop) {
 // element. It is hidden until the menu button is clicked to slide
 // it in and out of view.
 
+let oldHeight, newHeight;
 let isMobile = false;
-let oldHeight = $navbar.height();
-let newHeight = oldHeight + $collapseMenu.height();
 
 function setPos(elem) {
+
+    oldHeight = $navbar.height();
+    newHeight = oldHeight + $collapseMenu.height();
 
     $window.outerWidth() < settings.breakpoints.phone ? isMobile = true : isMobile = false;
 

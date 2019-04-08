@@ -5147,8 +5147,7 @@ time, mark, audio, video {
   transform: translateY(-50%) translateX(-50%); }
 
 .navbar {
-  min-height: 7rem;
-  height: max-content; }
+  min-height: 7rem; }
   .navbar__logo {
     position: absolute;
     top: 50%;
@@ -5158,11 +5157,17 @@ time, mark, audio, video {
     font-size: 2.5rem; }
     .navbar__logo--right {
       float: right; }
-  .navbar--fixed {
+    @media (min-width: 600px) {
+      .navbar__logo {
+        margin-left: 0; } }
+  .navbar--fixed-top, .navbar--fixed-bottom {
     position: fixed;
-    top: 0;
     width: 100%;
     z-index: 1000; }
+  .navbar--fixed-top {
+    top: 0; }
+  .navbar--fixed-bottom {
+    top: 0; }
   .navbar__icon-box {
     position: absolute;
     top: 50%;
@@ -5196,15 +5201,15 @@ time, mark, audio, video {
       transform: translateY(-0.7rem); }
     .navbar__icon::after {
       transform: translateY(0.7rem); }
+  @media (max-width: 600px) {
+    .navbar [data-content="collapse-menu"] {
+      display: none; } }
   @media (min-width: 600px) {
     .navbar [data-content="collapse-menu"] {
       display: inline-block !important; } }
   .navbar .nav {
-    display: block;
-    width: 100%;
     list-style: none; }
     .navbar .nav__item {
-      border: 0 !important;
       margin: 0 auto !important; }
     @media (min-width: 600px) {
       .navbar .nav {
@@ -5213,9 +5218,7 @@ time, mark, audio, video {
         font-size: 0; }
         .navbar .nav--flat > li.nav__item {
           display: inline-block;
-          background-color: #e0e0e0; }
-        .navbar .nav__item--drop:hover .drop {
-          transform: scaleY(1); } }
+          background-color: #e0e0e0; } }
   .navbar .drop {
     position: absolute;
     top: 100%;

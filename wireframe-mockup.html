@@ -7,8 +7,15 @@
         <link rel="stylesheet" href="css/style.css">
         <style>
             body {
-                background-color: #999;
-                color: #000;
+                background-color: #e0e0e0;
+                color: #777;
+            }
+
+            a,
+            a:link,
+            a:active,
+            a:visited {
+                color: #777;
             }
 
             header, 
@@ -25,27 +32,50 @@
                 background-color: #ececec
             }
 
-            .navbar {
-                border-bottom: 1px solid #777;
+            [data-content="orig-location"] {
+                border-bottom: 1px solid #c9c9c9;
+
             }
 
             .nav {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                margin-bottom: 1px;
+                display: block;
                 background-color: #e0e0e0;
+                border-bottom: 1px solid #c9c9c9;
             }
 
             .nav__item {
                 /* display: inline-block; */
                 font-size: 1.2rem;
-                width: 10rem;
-                margin-bottom: -1px;
                 padding: 1rem 2rem;
                 text-align: center;
-                border: 1px solid #777;
                 /* border-bottom: 0; */
+            }
+
+            @media (min-width: 600px) {
+                
+                .nav {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    margin-bottom: 1px;
+                    background-color: inherit;
+                    border-bottom: 0;
+                }
+
+                .nav__item {
+                    /* display: inline-block; */
+                    font-size: 1.1rem;
+                    width: 10rem;
+                    /* margin-bottom: -1px; */
+                    padding: 1rem 2rem;
+                    text-align: center;
+                    border: 1px solid #c9c9c9;
+                    border-bottom: 0;
+                }
+
+                .nav__link {
+                    text-transform: uppercase;
+                }
             }
 
             .nav__item:not(:last-child) {
@@ -59,9 +89,9 @@
                 transform: translateY(-50%);
                 height: 5rem;
                 width: 5rem;
-                border: 1px solid #777;
+                border: 1px solid #c9c9c9;
                 border-radius: 100%;
-                /* text-align: center; */
+                background-color: #e0e0e0;
             }
 
             .left-arrow {
@@ -84,10 +114,10 @@
         <!--* =================================== *
             *           Navigation bar            *
             * =================================== * -->
-            <nav class="navbar bg h-md-10">
+            <nav class="navbar bg h-md-10 navbar--fixed-top" data-content="new-location">
                 <div class="container-fluid-80">
                     <div class="row">
-                        <div class="col-md-12 nav__parent">   
+                        <div class="col-md-12 h-md-10" data-content="orig-location">   
                             <h2 class="navbar__logo">LOGO</h2>
                             <a class="navbar__icon-box navbar__icon-box--right">
                                 <span class="navbar__icon"></span>
@@ -97,7 +127,7 @@
                                     <a href="" class="nav__link">Link</a>
                                 </li>
                                 <li class="nav__item" data-content="drop">
-                                    <a href="" class="nav__link">Link *</a>
+                                    <a href="" class="nav__link">Link</a>
                                     <ul class="drop">
                                         <li class="drop__item">
                                             <a href="" class="drop__link">Dropdown Link</a>
@@ -188,7 +218,7 @@
                     <div class="col-md 12">
                         
                     </div>
-                </div>
+                </div>  
             </div>
             
         </footer>

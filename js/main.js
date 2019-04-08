@@ -1,5 +1,28 @@
 // =================================================================
 //
+//                            Settings
+//
+// =================================================================
+
+let settings = {
+
+    gutters: {
+        x: 10,
+        y: 10
+    },
+
+    breakpoints: {
+
+        phone: 600,
+        tabPort: 900,
+        tabLand: 1200
+    
+    }
+
+}
+
+// =================================================================
+//
 //                          Caching the DOM
 //
 // =================================================================
@@ -8,9 +31,27 @@ const $window = $(window);
 const $body = $("body");
 const $footer = $(".sticky-footer");
 const $navbar = $(".navbar");
-const $navParent = $(".nav__parent");
-const $getDataAttr = $("[data-content]");
-const $getChildren = $body.children().not($footer).not("script")
+const $toWrap = $body.children().not($footer).not("script")
+const $menuButton = $(".navbar__icon-box");
+
+// =================================================================
+//
+//                     Navbar Fixed Body Margin
+//
+// =================================================================
+// Dynamically adds a margin to the body if the navbar is fixed.
+
+if($navbar.hasClass("navbar--fixed-top")) {
+
+    const calcMarginTop = () => ($navbar.height() + settings.gutters.y);
+
+    $body.css({ "margin-top": calcMarginTop() });
+
+    $window.resize(() => {
+        $body.css({ "margin-top": calcMarginTop() });
+    });
+    
+}
 
 // =================================================================
 //
@@ -23,62 +64,78 @@ const $getChildren = $body.children().not($footer).not("script")
 // Requires at least one tag present other than the footer.
 
 if($footer.length === 1) {
-    $getChildren.wrapAll("<div class=\"wrapper\"></div>")
-    $(".wrapper").css( { "min-height": $window.height() - $footer.height() } );;
+    $toWrap.wrapAll("<div class=\"wrapper\"></div>")
+    $(".wrapper").css( { "min-height": $window.height()- $footer.height() } );;
 }
-
-
-
-
-
 
 // =================================================================
 //
 //                     Handle Data Attributes
 //
 // =================================================================
+// Cache the DOM for elements with data attributes
 
-$getDataAttr.each(function() {
+const $drop = $("[data-content=\"drop\"]")
+const $collapseMenu = $("[data-content=\"collapse-menu\"]")
+const $newLoc = $("[data-content=\"new-location\"]")
+const $origLoc = $("[data-content=\"orig-location\"]")
 
-    // =================================================================
-    //
-    //                          Dropdown Menus
-    //
-    // =================================================================
-    // Adds a slide down animation to menus with the class ".drop"
-    // Animation is triggered when a nav item with the attribute
-    // data-content attached to it is equal to drop.
+// =================================================================
+//
+//                          Dropdown Menus
+//
+// =================================================================
+// Adds a slide down animation to menus with the class ".drop"
+// Animation is triggered when a nav item with the attribute
+// data-content attached to it is equal to drop.
 
-    if($(this).data("content") === "drop") {
-        $(this).hover(function() {
-            $(this).find($(".drop")).slideDown();
-        }, function() {
-            $(this).find($(".drop")).slideUp(200);
-        });
-    } 
+if($drop) {
+    $drop.hover(function() {
+        $drop.find($(".drop")).slideDown();
+    }, function() {
+        $drop.find($(".drop")).slideUp(200);
+    });
+} 
 
-    let resizeTimer;
-    let newHeight = $navbar.height() + $(this).height();
+// =================================================================
+//
+//                     Collapse and Move Menu
+//
+// =================================================================
+// Dynamically detaches and re-appends the nav to the main navbar
+// element. It is hidden until the menu button is clicked to slide
+// it in and out of view.
 
-    if($(this).data("content") === "collapse-menu") {
+let isMobile = false;
+let oldHeight = $navbar.height();
+let newHeight = oldHeight + $collapseMenu.height();
 
-        $window.on("resize", () => {
+function setPos(elem) {
 
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                console.log($navbar.height());
-                console.log($navbar.height() + $(this).height());
+    $window.outerWidth() < settings.breakpoints.phone ? isMobile = true : isMobile = false;
 
-                if($window.width() < 600 && !$(this).parent().hasClass("navbar")) {
-                    $navbar.css({ "height": newHeight});
-                    $navbar.append($(this));
-                } else {
-                    $navParent.append($(this));
-                }
-            }, 0);
-            
-        });
-        
+    if(isMobile) {
+        $newLoc.append(elem);
+    } else {
+        $origLoc.append(elem);
+    }
+}
+
+if($collapseMenu) {
+    setPos($collapseMenu);
+
+    $window.resize(() => {
+        setPos($collapseMenu);
+    }); 
+}
+
+$menuButton.on("click", () => {
+    if($newLoc.height() <= oldHeight) {
+        $newLoc.animate({ "height": newHeight}, 500);
+        $collapseMenu.slideDown(500);
+    } else {
+        $newLoc.animate({ "height": oldHeight}, 500);
+        $collapseMenu.slideUp(500);
     }
 });
 

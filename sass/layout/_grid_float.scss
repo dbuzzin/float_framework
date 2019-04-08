@@ -36,10 +36,19 @@
             }
         }
     
-        @for $i from 1 through $grid-columns * 2 { @include column-width($i, sm); }
-        @for $i from 1 through $grid-columns * 2 { @include column-width($i, md); }
-        @for $i from 1 through $grid-columns * 2 { @include column-width($i, lg); }
-    
+        @include respond(phone) {
+            @for $i from 1 through $grid-columns * 2 { @include column-width($i, sm); }
+        }
+
+        @include respond(tab-port) {
+            @for $i from 1 through $grid-columns * 2 { @include column-width($i, md); }
+            @include column-methods(md);
+        }
+        
+        @include respond(tab-land) {
+            @for $i from 1 through $grid-columns * 2 { @include column-width($i, lg); }
+            @include column-methods(lg);
+        }    
     }
 
 }

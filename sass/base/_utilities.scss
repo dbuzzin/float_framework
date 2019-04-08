@@ -4,13 +4,18 @@
 //
 // ==================================================
 
-@for $i from 1 through 100 { @include build-utilities(h, $i, sm); }
-@for $i from 1 through 100 { @include build-utilities(h, $i, md); }
-@for $i from 1 through 100 { @include build-utilities(h, $i, lg); }
-@for $i from 1 through 100 { @include build-utilities(w, $i, sm); }
-@for $i from 1 through 100 { @include build-utilities(w, $i, md); }
-@for $i from 1 through 100 { @include build-utilities(w, $i, lg); }
-
+@include respond(phone) {
+    @for $i from 1 through 100 { @include build-utilities(h, $i, sm); }
+    @for $i from 1 through 100 { @include build-utilities(w, $i, sm); }
+}
+@include respond(tab-port) {
+    @for $i from 1 through 100 { @include build-utilities(h, $i, md); }
+    @for $i from 1 through 100 { @include build-utilities(w, $i, md); }
+}
+@include respond(tab-land) {
+    @for $i from 1 through 100 { @include build-utilities(h, $i, lg); }
+    @for $i from 1 through 100 { @include build-utilities(w, $i, lg); }
+}
 
 // ==================================================
 //
@@ -18,27 +23,34 @@
 //
 // ==================================================
 
-@for $i from 1 through 15 { @include build-utilities(m, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(m, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(m, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(mx, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(mx, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(mx, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(my, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(my, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(my, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(mt, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(mt, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(mt, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(mb, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(mb, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(mb, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(ml, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(ml, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(ml, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(mr, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(mr, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(mr, $i, lg); }
+@include respond(phone) {
+    @for $i from 1 through 15 { @include build-utilities(m, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(mx, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(my, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(mt, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(mb, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(ml, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(mr, $i, sm); }
+}
+@include respond(tab-port) {
+    @for $i from 1 through 15 { @include build-utilities(m, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(mx, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(my, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(mt, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(mb, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(ml, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(mr, $i, md); }
+}
+@include respond(tab-land) {
+    @for $i from 1 through 15 { @include build-utilities(m, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(mx, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(my, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(mt, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(mb, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(ml, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(mr, $i, lg); }  
+}
+
 
 // ==================================================
 //
@@ -46,27 +58,33 @@
 //
 // ==================================================
 
-@for $i from 1 through 15 { @include build-utilities(p, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(p, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(p, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(px, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(px, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(px, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(py, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(py, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(py, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(pt, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(pt, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(pt, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(pb, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(pb, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(pb, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(pl, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(pl, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(pl, $i, lg); }
-@for $i from 1 through 15 { @include build-utilities(pr, $i, sm); }
-@for $i from 1 through 15 { @include build-utilities(pr, $i, md); }
-@for $i from 1 through 15 { @include build-utilities(pr, $i, lg); }
+@include respond(phone) {
+    @for $i from 1 through 15 { @include build-utilities(p, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(px, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(py, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(pt, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(pb, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(pl, $i, sm); }
+    @for $i from 1 through 15 { @include build-utilities(pr, $i, sm); }
+}
+@include respond(tab-port) {
+    @for $i from 1 through 15 { @include build-utilities(p, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(px, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(py, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(pt, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(pb, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(pl, $i, md); }
+    @for $i from 1 through 15 { @include build-utilities(pr, $i, md); }
+}
+@include respond(tab-land) {
+    @for $i from 1 through 15 { @include build-utilities(p, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(px, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(py, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(pt, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(pb, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(pl, $i, lg); }
+    @for $i from 1 through 15 { @include build-utilities(pr, $i, lg); }  
+}
 
 // ==================================================
 //

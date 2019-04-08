@@ -44,34 +44,39 @@
     $calculated-width: calc((100% - ((#{$grid-columns} / #{$num-cols}) - 1) * #{$gutter-x}) / (#{$grid-columns} / #{$num-cols}));
 
     @if $screen == sm {
-        @include respond(phone) {
             .col-#{$screen}-#{$num-cols} {
                 width: $calculated-width;
             }
-        }
     }
 
     @if $screen == md {
-        @include respond(tab-port) {
             .col-#{$screen}-#{$num-cols} {
                 width: $calculated-width;
             }
-            .#{$screen}-fillback { 
-                transform: translateX(-50%); 
-                margin-left: -($gutter-x / 2) ;
+            
+    }
+
+    @if $screen == lg {
+            .col-#{$screen}-#{$num-cols} {
+                width: $calculated-width;
             }
+    }
+    
+}
+
+@mixin column-methods($screen) {
+
+    @if $screen == md {
+        .#{$screen}-fillback {
+            transform: translateX(-50%); 
+            margin-left: -($gutter-x / 2) ;
         }
     }
 
     @if $screen == lg {
-        @include respond(tab-land) {
-            .col-#{$screen}-#{$num-cols} {
-                width: $calculated-width;
-            }
-            .#{$screen}-normalise {
-                transform: translateX(0);
-                margin-left: 0;
-            }
+        .#{$screen}-normalise {
+            transform: translateX(0);
+            margin: 0;
         }
     }
     
@@ -110,17 +115,16 @@
     // ==================================================
 
     @if $screen == sm { // Small
-        @if $u == h { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { height: #{$num}rem !important; }}}
-        @if $u == w { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { width: #{$num}rem !important; }}}
+        @if $u == h { .#{$u}-#{$screen}-#{$num} { height: #{$num}rem !important; }}
+        @if $u == w { .#{$u}-#{$screen}-#{$num} { width: #{$num}rem !important; }}
     }
-
     @if $screen == md { // Medium
-        @if $u == h { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { height: #{$num}rem !important; }}}
-        @if $u == w { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { width: #{$num}rem !important; }}}
+        @if $u == h { .#{$u}-#{$screen}-#{$num} { height: #{$num}rem !important; }}
+        @if $u == w { .#{$u}-#{$screen}-#{$num} { width: #{$num}rem !important; }}
     }
     @if $screen == lg { // Large
-        @if $u == h { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { height: #{$num}rem !important; }}}
-        @if $u == w { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { width: #{$num}rem !important; }}}
+        @if $u == h { .#{$u}-#{$screen}-#{$num} { height: #{$num}rem !important; }}
+        @if $u == w { .#{$u}-#{$screen}-#{$num} { width: #{$num}rem !important; }}
     }
 
     // ==================================================
@@ -130,31 +134,31 @@
     // ==================================================
 
     @if $screen == sm { // Small
-        @if $u == m { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { margin: #{$num}rem !important; }}}
-        @if $u == mx { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { margin-left: #{$num}rem !important; margin-right: #{$num}rem !important; }}}
-        @if $u == my { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { margin-top: #{$num}rem !important; margin-bottom: #{$num}rem !important; }}} 
-        @if $u == mt { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { margin-top: #{$num}rem !important; }}}
-        @if $u == mb { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { margin-bottom: #{$num}rem !important; }}}
-        @if $u == ml { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { margin-left: #{$num}rem !important; }}}
-        @if $u == mr { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { margin-right: #{$num}rem !important; }}} 
+        @if $u == m { .#{$u}-#{$screen}-#{$num} { margin: #{$num}rem !important; }}
+        @if $u == mx { .#{$u}-#{$screen}-#{$num} { margin-left: #{$num}rem !important; margin-right: #{$num}rem !important; }}
+        @if $u == my { .#{$u}-#{$screen}-#{$num} { margin-top: #{$num}rem !important; margin-bottom: #{$num}rem !important; }}
+        @if $u == mt { .#{$u}-#{$screen}-#{$num} { margin-top: #{$num}rem !important; }}
+        @if $u == mb { .#{$u}-#{$screen}-#{$num} { margin-bottom: #{$num}rem !important; }}
+        @if $u == ml { .#{$u}-#{$screen}-#{$num} { margin-left: #{$num}rem !important; }}
+        @if $u == mr { .#{$u}-#{$screen}-#{$num} { margin-right: #{$num}rem !important; }} 
     }
     @if $screen == md { // Medium
-        @if $u == m { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { margin: #{$num}rem !important; }}} 
-        @if $u == mx { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { margin-left: #{$num}rem !important; margin-right: #{$num}rem !important; }}} 
-        @if $u == my { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { margin-top: #{$num}rem !important; margin-bottom: #{$num}rem !important; }}} 
-        @if $u == mt { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { margin-top: #{$num}rem !important; }}} 
-        @if $u == mb { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { margin-bottom: #{$num}rem !important; }}} 
-        @if $u == ml { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { margin-left: #{$num}rem !important; }}} 
-        @if $u == mr { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { margin-right: #{$num}rem !important; }}} 
+        @if $u == m { .#{$u}-#{$screen}-#{$num} { margin: #{$num}rem !important; }} 
+        @if $u == mx { .#{$u}-#{$screen}-#{$num} { margin-left: #{$num}rem !important; margin-right: #{$num}rem !important; }} 
+        @if $u == my { .#{$u}-#{$screen}-#{$num} { margin-top: #{$num}rem !important; margin-bottom: #{$num}rem !important; }} 
+        @if $u == mt { .#{$u}-#{$screen}-#{$num} { margin-top: #{$num}rem !important; }} 
+        @if $u == mb { .#{$u}-#{$screen}-#{$num} { margin-bottom: #{$num}rem !important; }} 
+        @if $u == ml { .#{$u}-#{$screen}-#{$num} { margin-left: #{$num}rem !important; }} 
+        @if $u == mr { .#{$u}-#{$screen}-#{$num} { margin-right: #{$num}rem !important; }} 
     }
     @if $screen == lg { // Large
-        @if $u == m { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { margin: #{$num}rem !important; }}} 
-        @if $u == mx { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { margin-left: #{$num}rem !important; margin-right: #{$num}rem !important; }}} 
-        @if $u == my { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { margin-top: #{$num}rem !important; margin-bottom: #{$num}rem !important; }}} 
-        @if $u == mt { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { margin-top: #{$num}rem !important; }}} 
-        @if $u == mb { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { margin-bottom: #{$num}rem !important; }}} 
-        @if $u == ml { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { margin-left: #{$num}rem !important; }}} 
-        @if $u == mr { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { margin-right: #{$num}rem !important; }}} 
+        @if $u == m { .#{$u}-#{$screen}-#{$num} { margin: #{$num}rem !important; }}
+        @if $u == mx { .#{$u}-#{$screen}-#{$num} { margin-left: #{$num}rem !important; margin-right: #{$num}rem !important; }}
+        @if $u == my { .#{$u}-#{$screen}-#{$num} { margin-top: #{$num}rem !important; margin-bottom: #{$num}rem !important; }}
+        @if $u == mt { .#{$u}-#{$screen}-#{$num} { margin-top: #{$num}rem !important; }} 
+        @if $u == mb { .#{$u}-#{$screen}-#{$num} { margin-bottom: #{$num}rem !important; }} 
+        @if $u == ml { .#{$u}-#{$screen}-#{$num} { margin-left: #{$num}rem !important; }} 
+        @if $u == mr { .#{$u}-#{$screen}-#{$num} { margin-right: #{$num}rem !important; }}
     }
 
     // ==================================================
@@ -164,30 +168,30 @@
     // ==================================================
 
     @if $screen == sm { // Small
-        @if $u == p { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { padding: #{$num}rem !important; }}}
-        @if $u == px { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { padding-left: #{$num}rem !important; padding-right: #{$num}rem !important; }}}
-        @if $u == py { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { padding-top: #{$num}rem !important; padding-bottom: #{$num}rem !important; }}} 
-        @if $u == pt { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { padding-top: #{$num}rem !important; }}}
-        @if $u == pb { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { padding-bottom: #{$num}rem !important; }}}
-        @if $u == pl { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { padding-left: #{$num}rem !important; }}}
-        @if $u == pr { .#{$u}-#{$screen}-#{$num} { @include respond(phone) { padding-right: #{$num}rem !important; }}} 
+        @if $u == p { .#{$u}-#{$screen}-#{$num} { padding: #{$num}rem !important; }}
+        @if $u == px { .#{$u}-#{$screen}-#{$num} { padding-left: #{$num}rem !important; padding-right: #{$num}rem !important; }}
+        @if $u == py { .#{$u}-#{$screen}-#{$num} { padding-top: #{$num}rem !important; padding-bottom: #{$num}rem !important; }} 
+        @if $u == pt { .#{$u}-#{$screen}-#{$num} { padding-top: #{$num}rem !important; }}
+        @if $u == pb { .#{$u}-#{$screen}-#{$num} { padding-bottom: #{$num}rem !important; }}
+        @if $u == pl { .#{$u}-#{$screen}-#{$num} { padding-left: #{$num}rem !important; }}
+        @if $u == pr { .#{$u}-#{$screen}-#{$num} { padding-right: #{$num}rem !important; }} 
     }
     @if $screen == md { // Medium
-        @if $u == p { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { padding: #{$num}rem !important; }}} 
-        @if $u == px { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { padding-left: #{$num}rem !important; padding-right: #{$num}rem !important; }}} 
-        @if $u == py { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { padding-top: #{$num}rem !important; padding-bottom: #{$num}rem !important; }}} 
-        @if $u == pt { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { padding-top: #{$num}rem !important; }}} 
-        @if $u == pb { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { padding-bottom: #{$num}rem !important; }}} 
-        @if $u == pl { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { padding-left: #{$num}rem !important; }}} 
-        @if $u == pr { .#{$u}-#{$screen}-#{$num} { @include respond(tab-port) { padding-right: #{$num}rem !important; }}} 
+        @if $u == p { .#{$u}-#{$screen}-#{$num} { padding: #{$num}rem !important; }} 
+        @if $u == px { .#{$u}-#{$screen}-#{$num} { padding-left: #{$num}rem !important; padding-right: #{$num}rem !important; }} 
+        @if $u == py { .#{$u}-#{$screen}-#{$num} { padding-top: #{$num}rem !important; padding-bottom: #{$num}rem !important; }} 
+        @if $u == pt { .#{$u}-#{$screen}-#{$num} { padding-top: #{$num}rem !important; }} 
+        @if $u == pb { .#{$u}-#{$screen}-#{$num} { padding-bottom: #{$num}rem !important; }} 
+        @if $u == pl { .#{$u}-#{$screen}-#{$num} { padding-left: #{$num}rem !important; }} 
+        @if $u == pr { .#{$u}-#{$screen}-#{$num} { padding-right: #{$num}rem !important; }} 
     }
     @if $screen == lg { // Large
-        @if $u == p { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { padding: #{$num}rem !important; }}} 
-        @if $u == px { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { padding-left: #{$num}rem !important; padding-right: #{$num}rem !important; }}} 
-        @if $u == py { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { padding-top: #{$num}rem !important; padding-bottom: #{$num}rem !important; }}} 
-        @if $u == pt { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { padding-top: #{$num}rem !important; }}} 
-        @if $u == pb { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { padding-bottom: #{$num}rem !important; }}} 
-        @if $u == pl { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { padding-left: #{$num}rem !important; }}} 
-        @if $u == pr { .#{$u}-#{$screen}-#{$num} { @include respond(tab-land) { padding-right: #{$num}rem !important; }}} 
+        @if $u == p { .#{$u}-#{$screen}-#{$num} { padding: #{$num}rem !important; }} 
+        @if $u == px { .#{$u}-#{$screen}-#{$num} { padding-left: #{$num}rem !important; padding-right: #{$num}rem !important; }} 
+        @if $u == py { .#{$u}-#{$screen}-#{$num} { padding-top: #{$num}rem !important; padding-bottom: #{$num}rem !important; }} 
+        @if $u == pt { .#{$u}-#{$screen}-#{$num} { padding-top: #{$num}rem !important; }} 
+        @if $u == pb { .#{$u}-#{$screen}-#{$num} { padding-bottom: #{$num}rem !important; }} 
+        @if $u == pl { .#{$u}-#{$screen}-#{$num} { padding-left: #{$num}rem !important; }} 
+        @if $u == pr { .#{$u}-#{$screen}-#{$num} { padding-right: #{$num}rem !important; }} 
     }
 }

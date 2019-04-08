@@ -53,9 +53,16 @@
 
 }
 
+@include respond(phone) {
+    @for $i from 1 through 10 { $multiplier: $i * 10; @include build-containers($i, sm, fluid); }
+}
+
+@include respond(tab-port) {
+    @for $i from 1 through 10 { $multiplier: $i * 10; @include build-containers($i, md, fluid); }
+}
 
 
-@for $i from 1 through 10 { $multiplier: $i * 10; @include build-containers($i, 0, fluid); }
+
 
 
 
